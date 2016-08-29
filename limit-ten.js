@@ -4,9 +4,9 @@ const transformer = Transform()
 let counter = 1;
 
 transformer._transform = (buffer, encoding, cb) => {
-  // console.log('transform:', buffer.toString());
-  if (counter < 11) {
-    cb(null, buffer)
+  let output = `${buffer}\n`
+  if (counter <= 10) {
+    cb(null, output)
     counter++
   } else if (counter === 11) {
     console.log('more...');
