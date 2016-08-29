@@ -16,8 +16,8 @@ readStream.pipe(es.split())                  //split stream to break on newlines
             } else {
               let testerData = data.toString()
               if (testerData.toUpperCase().startsWith(searchTerm.toUpperCase())) {
-                console.log(testerData);
-                return testerData
+                // console.log(testerData);
+                cb(null, testerData)
               } else {
                 cb()
               }
@@ -28,6 +28,6 @@ readStream.pipe(es.split())                  //split stream to break on newlines
 
 
 writeStream._write = (buffer, encoding, cb) => {
-  console.log('_write', buffer.toString())
+  console.log(buffer.toString())
   cb()
 }
